@@ -1,0 +1,24 @@
+---
+spring:
+  datasource:
+    password: root
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8
+    username: root
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    content-type: text/html
+    encoding: UTF-8
+server:
+  port: 8082
+mybatis:
+  mapper-locations: classpath:mapper/*.xml,classpath*:com/**/mapper/*.xml
+host:
+  mall:
+    admin: http://localhost:8080
+logging:
+  level:
+    com:
+      macro:
+        mall: debug
+    root: warn

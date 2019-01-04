@@ -1,0 +1,39 @@
+---
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    content-type: text/html
+    encoding: UTF-8
+server:
+  port: 8081
+jwt:
+  tokenHead: Bearer
+  tokenHeader: Authorization
+  expiration: 604800
+  secret: mySecret
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath*:com/**/mapper/*.xml
+
+# 日志
+logging:
+  level:
+    com:
+      macro:
+        mall: debug
+    root: info
+
+aliyun:
+  oss:
+    accessKeyId: test
+    bucketName: macro-oss
+    accessKeySecret: test
+    endpoint: oss-cn-shenzhen.aliyuncs.com
+    callback: http://localhost:8080/aliyun/oss/callback
+    maxSize: 10
+    dir:
+      prefix: mall/images/
+    policy:
+      expire: 300

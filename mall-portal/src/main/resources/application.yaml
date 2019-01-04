@@ -1,0 +1,20 @@
+---
+spring:
+  profiles:
+    active: dev
+authCode:
+  expire:
+    seconds: 90
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath*:com/**/mapper/*.xml
+http:
+  port: 8085
+rabbitmq:
+  queue:
+    name:
+      cancelOrder: "cancelOrderQueue"
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+      orderId: "portal:orderId:"

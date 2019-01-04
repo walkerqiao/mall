@@ -1,0 +1,33 @@
+---
+spring:
+  data:
+    mongodb:
+      database: mall-port
+      port: 27017
+      host: mongo
+  datasource:
+    password: root
+    druid:
+      min-idle: 10
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        login-password: druid
+        login-username: druid
+      max-active: 20
+      initial-size: 5
+    url: jdbc:mysql://db:3306/mall?useUnicode=true&characterEncoding=utf-8
+    username: root
+  redis:
+    password:
+    database: 0
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+    host: redis
+    timeout: 0
+server:
+  port: 8085

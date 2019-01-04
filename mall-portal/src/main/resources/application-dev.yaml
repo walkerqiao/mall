@@ -1,0 +1,58 @@
+---
+spring:
+  data:
+    mongodb:
+      database: mall-port
+      port: 27017
+      host: localhost
+  datasource:
+    password: root
+    druid:
+      min-idle: 10
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        login-password: druid
+        login-username: druid
+      max-active: 20
+      initial-size: 5
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8
+    username: root
+  rabbitmq:
+    password: mall
+    port: 5672
+    host: localhost
+    virtual-host: /mall
+    publisher-confirms: true
+    username: mall
+  redis:
+    password:
+    database: 0
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+    host: localhost
+    timeout: 0
+server:
+  port: 8443
+  ssl:
+    key-alias: tomcat
+    key-store-type: PKCS12
+    key-store: keystore.p12
+    key-store-password: 123456
+logging:
+  level:
+    com:
+      macro:
+        mall:
+          mapper: debug
+          portal:
+            dao: debug
+    org:
+      springframework:
+        data:
+          mongodb:
+            core: debug

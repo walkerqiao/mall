@@ -1,0 +1,6 @@
+---
+jdbc:
+  password: root
+  driverClass: com.mysql.jdbc.Driver
+  connectionURL: jdbc:mysql://localhost:3306/mall
+  userId: root
